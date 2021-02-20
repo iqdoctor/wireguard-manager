@@ -99,6 +99,7 @@ function kernel-check() {
 kernel-check
 
 # Global variables
+WIREGUARD_INSTALL_URL="https://www.wireguard.com/install"
 WIREGUARD_PATH="/etc/wireguard"
 WIREGUARD_CLIENT_PATH="$WIREGUARD_PATH/clients"
 WIREGUARD_PUB_NIC="wg0"
@@ -1071,7 +1072,7 @@ AllowedIPs = $CLIENT_ADDRESS_V4/32,$CLIENT_ADDRESS_V6/128
         cat $WIREGUARD_ADD_PEER_CONFIG >> $WIREGUARD_CONFIG
         rm -f $WIREGUARD_ADD_PEER_CONFIG
         # Write client file
-        echo "# $NEW_CLIENT_NAME
+        echo "# $WIREGUARD_INSTALL_URL $NEW_CLIENT_NAME
 [Interface]
 Address = $CLIENT_ADDRESS_V4/$PRIVATE_SUBNET_MASK_V4,$CLIENT_ADDRESS_V6/$PRIVATE_SUBNET_MASK_V6
 DNS = $CLIENT_DNS
